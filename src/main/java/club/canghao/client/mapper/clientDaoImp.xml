@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="club.canghao.client.dao.clientDao">
+	<select id="getAllClient" resultType="club.canghao.client.model.client">
+		select * from client_view
+	</select>
+	
+	<select id="getClientByIdOrName" resultType="club.canghao.client.model.client">
+		select * from client_view where clientId=#{0} or clientName=#{0}
+	</select>
+	
+	<insert id="addClient" useGeneratedKeys="true" parameterType="club.canghao.client.model.client" keyProperty="clientId" keyColumn="clientId">
+	    insert into client
+	    values(null,#{clientName},#{clientAge},#{clientPhone},#{clientSex},#{clientEmail},#{clientImageUrl},#{clientMore})
+	</insert>
+	
+	<delete id="deleteClientById">
+	    delete from client where clientId=#{1}
+	</delete>
+	
+	<update id="updateClientById" parameterType="club.canghao.client.model.client">
+	    update client
+	    set clientName=#{clientName},clientSex=#{clientSex},clientAge=#{clientAge},
+	    clientEmail=#{clientEmail},clientImageUrl=#{clientImageUrl},clientMore=#{clientMore},
+	    clientPhone=#{clientPhone}
+	    where clientId=#{clientId}
+	</update>
+</mapper>

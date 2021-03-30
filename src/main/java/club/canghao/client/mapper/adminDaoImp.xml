@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="club.canghao.client.dao.adminDao">
+	<select id="getAdmin" resultType="club.canghao.client.model.admin" parameterType="club.canghao.client.model.admin">
+		select * from admin where username=#{username} and password=#{password} 
+	</select>
+
+	<update id="updatePassword" parameterType="club.canghao.client.model.admin">
+	    update admin
+	    set password=#{password}
+	    where username=#{username}
+	</update>
+</mapper>

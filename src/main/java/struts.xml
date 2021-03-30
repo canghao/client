@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts  Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+      <constant name="struts.multipart.maxSize" value="524288000" />
+      <constant name="struts.multipart.saveDir" value="/tmp"/>
+      <package name="client" extends="json-default,struts-default" namespace="/">
+      		<action name="getAllClient" class="club.canghao.client.action.clientAction" method="getAllClient">
+      			  <result type="json">
+                     <param name="root">clients</param><!-- action中的属性 -->
+                 </result>
+      		</action>
+      		<action name="getClientByIdOrName" class="club.canghao.client.action.clientAction" method="getClientByIdOrName">
+      			  <result type="json">
+                     <param name="root">clients</param><!-- action中的属性 -->
+                 </result>
+      		</action>
+      		<action name="addClient" class="club.canghao.client.action.clientAction" method="addClient">
+      			  <result type="json">
+                     <param name="root">result</param><!-- action中的属性 -->
+                 </result>
+      		</action>
+      		<action name="deleteClientById" class="club.canghao.client.action.clientAction" method="deleteClientById">
+      			  <result type="json">
+                     <param name="root">result</param><!-- action中的属性 -->
+                 </result>
+      		</action>
+      		<action name="updateClientById" class="club.canghao.client.action.clientAction" method="updateClientById">
+      			  <result type="json">
+                     <param name="root">result</param><!-- action中的属性 -->
+                 </result>
+                 
+      		</action>
+      		<action name="upload" class="club.canghao.client.action.uploadAction" method="upload">
+   				  <result type="json">
+                     <param name="root">result</param><!-- action中的属性 -->
+                 </result>   
+         		  <interceptor-ref name="defaultStack">
+
+   				 </interceptor-ref>
+  		  </action>
+      </package>
+      <package name="business" extends="json-default,struts-default" namespace="/">
+      		<action name="getAllBusiness" class="club.canghao.client.action.businessAction" method="getAllBusiness">
+      			  <result type="json">
+                     <param name="root">businesses</param><!-- action中的属性 -->
+                 </result>
+      		</action>
+      		<action name="getBusinessByIdOrName" class="club.canghao.client.action.businessAction" method="getBusinessByIdOrName">
+      			  <result type="json">
+                     <param name="root">businesses</param><!-- action中的属性 -->
+                 </result>
+      		</action>
+      		<action name="addBusiness" class="club.canghao.client.action.businessAction" method="addBusiness">
+      			  <result type="json">
+                     <param name="root">result</param><!-- action中的属性 -->
+                 </result>
+      		</action>
+      		<action name="deleteBusinessById" class="club.canghao.client.action.businessAction" method="deleteBusinessById">
+      			  <result type="json">
+                     <param name="root">result</param><!-- action中的属性 -->
+                 </result>
+      		</action>
+      		<action name="updateBusinessById" class="club.canghao.client.action.businessAction" method="updateBusinessById">
+      			  <result type="json">
+                     <param name="root">result</param><!-- action中的属性 -->
+                 </result>
+      		</action>
+      </package>
+      <package name="admin" extends="json-default,struts-default" namespace="/">
+      		<action name="getAdmin" class="club.canghao.client.action.adminAction" method="getAdmin">
+      			  <result type="json">
+                     <param name="root">result</param><!-- action中的属性 -->
+                 </result>
+      		</action>
+      		<action name="updatePassword" class="club.canghao.client.action.adminAction" method="updatePassword">
+      			  <result type="json">
+                     <param name="root">result</param><!-- action中的属性 -->
+                 </result>
+      		</action>
+      </package>
+      <package name="client_business" extends="json-default,struts-default" namespace="/">
+      		
+      		<action name="addClient_Business" class="club.canghao.client.action.client_businessAction" method="addClient_Business">
+      			  <result type="json">
+                     <param name="root">result</param><!-- action中的属性 -->
+                 </result>
+      		</action>
+      </package>
+</struts>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="club.canghao.client.dao.businessDao">
+	<select id="getAllBusiness" resultType="club.canghao.client.model.business">
+		select * from business_view
+	</select>
+	
+	<select id="getBusinessByIdOrName" resultType="club.canghao.client.model.business">
+		select * from business_view where businessId=#{0} or businessName=#{0}
+	</select>
+	
+	<insert id="addBusiness" parameterType="club.canghao.client.model.business">
+	    insert into business 
+	    values(null,#{businessName},#{businessDescription})
+	</insert>
+	
+	<delete id="deleteBusinessById">
+	    delete from business where businessId=#{1}
+	</delete>
+	
+	<update id="updateBusinessById" parameterType="club.canghao.client.model.business">
+	    update business
+	    set businessName=#{businessName},businessDescription=#{businessDescription}
+	    where businessId=#{businessId}
+	</update>
+</mapper>
